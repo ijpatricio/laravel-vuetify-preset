@@ -1,5 +1,7 @@
 ## About Vuetify Laravel Preset
 
+![](./github/devtools.png)
+
 View based templates.
 Big bundle size
 For a full, optimized, Vuetify build, refer to [Vuetify install](https://vuetifyjs.com/en/getting-started/installation/) with Vue-Cli
