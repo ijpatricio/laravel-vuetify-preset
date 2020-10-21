@@ -1,3 +1,13 @@
+/**
+ * Babel is a toolchain that is mainly used to convert ECMAScript 2015+
+ * code into a backwards compatible version of JavaScript in
+ * current and older browsers or environments
+ *
+ * @see https://babeljs.io/docs/en/babel-polyfill
+ */
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 window._ = require('lodash');
 
 /**
@@ -9,6 +19,12 @@ window._ = require('lodash');
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+const token = document.head.querySelector('meta[name="csrf-token"]')
+if (token) {
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
